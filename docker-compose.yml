@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: smartapi_tester_backend
+    volumes:
+      # Persists backend credentials saved via dashboard settings
+      - ./backend/.env:/usr/src/app/.env
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+      - NODE_ENV=production
+    restart: always
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: smartapi_tester_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always

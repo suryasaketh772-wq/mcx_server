@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-darkBg text-textNormal font-sans antialiased;
+  }
+}
+
+/* Custom premium scrollbars for terminal and pages */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0E11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A313C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1D9BF0;
+}
+
+/* Glassmorphism panel cards */
+.glass-panel {
+  background: rgba(22, 27, 34, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(42, 49, 60, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel:hover {
+  border-color: rgba(29, 155, 240, 0.3);
+}
+
+/* Glowing animations for indicators */
+.indicator-glow-green {
+  box-shadow: 0 0 12px #00C076;
+}
+
+.indicator-glow-red {
+  box-shadow: 0 0 12px #FF3B30;
+}
+
+.indicator-glow-blue {
+  box-shadow: 0 0 12px #1D9BF0;
+}
+
+.indicator-glow-orange {
+  box-shadow: 0 0 12px #FF9500;
+}
+
+/* Custom transitions */
+.transition-trading {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dynamic price ticking flash classes */
+.flash-up {
+  animation: flashGreen 0.6s ease-out;
+}
+
+.flash-down {
+  animation: flashRed 0.6s ease-out;
+}
+
+/* Hide number input spinners (up and down arrows) */
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner {
+  -moz-appearance: textfield;
+}

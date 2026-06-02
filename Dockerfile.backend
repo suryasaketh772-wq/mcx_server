@@ -1,0 +1,24 @@
+# Stage 1: Build & Install Dependencies
+FROM node:18-alpine AS builder
+
+WORKDIR /usr/src/app
+
+COPY backend/package*.json ./
+RUN npm ci --only=production
+
+# Stage 2: Production Execution
+FROM node:18-alpine
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app/node_modules ./node_modules
+COPY backend/package.json ./
+COPY backend/src ./src
+
+# Expose backend port
+EXPOSE 5001
+
+ENV NODE_ENV=production
+ENV PORT=5001
+
+CMD ["npm", "start"]

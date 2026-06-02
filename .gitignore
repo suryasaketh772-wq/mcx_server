@@ -1,0 +1,33 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Environment configurations (credentials, keys, passwords)
+.env
+.env.production
+.env.development
+.env.local
+.env.*.local
+
+# Production Build outputs
+dist/
+build/
+out/
+.next/
+
+# IDE/Editor environments and caches
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.classpath
+.settings/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
